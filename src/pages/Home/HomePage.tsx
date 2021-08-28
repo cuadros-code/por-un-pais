@@ -41,9 +41,9 @@ const HomePage = () => {
 
           </ContentButtons>
         </Description>
-        <div>
+        <ContentImg>
           <Img src={imgMoney} alt="money" />
-        </div>
+        </ContentImg>
 
       </Content>
     </Container>
@@ -62,12 +62,17 @@ const Container = styled.div`
 const Content = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+
+  @media (max-width: 700px){
+    grid-template-columns: 1fr;
+  }
+
 `
 
 const ContentButtons = styled.div`
   margin-top: 20px;
   display: flex;
-  width: 100%;
+  width: 400px;
   justify-content: space-around;
 `
 
@@ -107,13 +112,28 @@ const Description = styled.div`
     font-size: 2rem;
     font-weight: bold;
     color: #060486;
+    @media (max-width: 600px){
+      text-align: center;
+    }
   }
 
   h2{
     color: #000000;
     margin-bottom: 20px;
   }
+
+  @media (max-width: 600px){
+    padding: 0px 10px;
+  }
 `
+
+const ContentImg = styled.div`
+  @media (max-width: 600px){
+    display: flex;
+    justify-content: center;
+  }
+`
+
 const Img = styled.img`
   width: 90%;
   position: relative;

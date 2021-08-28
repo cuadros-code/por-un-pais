@@ -6,9 +6,7 @@ const AppBar = () => {
     <Nav>
       <div>
         <Title> 
-          <span className="color-1">Por </span> 
-          <span className="color-2">1 </span> 
-          <span className="color-3">País </span>
+          Por 1 País 
         </Title>
       </div>
       <ContentButtons>
@@ -29,12 +27,19 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media(max-width: 1000px) {
+    padding: 0px 30px;
+  }
+  @media(max-width: 600px) {
+    padding: 0px 10px;
+  }
 `
 
 const Title = styled.p`
   font-size: 1.7rem;
   font-weight: 700;
-
+  color: #1900a7;
 `
 
 const ContentButtons = styled.div`
@@ -42,6 +47,12 @@ const ContentButtons = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 30%;
+  @media(max-width: 1000px) {
+    width: 50%;
+  }
+  @media(max-width: 600px) {
+    width: 60%;
+  }
 `
 
 const Link = styled.a`
