@@ -6,4 +6,5 @@ export const TextField = styled.input`
   border-radius: 50px;
   outline: none;
   padding-left: 15px;
+  letter-spacing: 0.5px;
 `

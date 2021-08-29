@@ -17,7 +17,9 @@ export const ButtonGeneral = styled.button<ButtonProps>`
   transition: 0.3s;
   text-decoration: none;
   width: 100%;
-
+  :hover{
+   background-color : rgba( 0, 0, 0, 0.9 ) ;
+  }
   :active {
     background: rgba( 255, 255, 255, 0.3 );
   }

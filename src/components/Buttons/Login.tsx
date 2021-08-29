@@ -11,6 +11,9 @@ export const Button = styled(Link)`
   transition: 0.3s;
   text-decoration: none;
 
+  :hover{
+    
+  }
   :active {
     background: rgba( 255, 255, 255, 0.3 );
   }
