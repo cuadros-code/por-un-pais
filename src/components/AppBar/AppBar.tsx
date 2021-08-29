@@ -1,19 +1,33 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { Button } from '../Buttons/Login'
 
-const AppBar = () => {
-  return (
-    <Nav>
-      <div>
-        <Title> 
-          Por 1 País 
-        </Title>
-      </div>
-      <ContentButtons>
-        <Link href="!#"> Contacto </Link>
-        <Link href="!#"> Equipo </Link>
+interface NavProps {
+  scroll: boolean
+}
 
-        <Button>Iniciar sesion</Button>
+const AppBar = () => {
+
+  const [scroll, setScroll] = useState(false)
+
+  window.addEventListener('scroll', () => {
+    if(window.scrollY >= 5){
+      setScroll(true)
+    }else{
+      setScroll(false)
+    }
+  })
+
+  return (
+    <Nav scroll={scroll}>
+      <Title to="/"> 
+        Por 1 País 
+      </Title>
+      <ContentButtons>
+        <LinkNav to="" > Contacto </LinkNav>
+        <LinkNav to="" > Equipo </LinkNav>
+        <Button to="/login" >Iniciar sesión</Button>
       </ContentButtons>
     </Nav>
   )
@@ -21,32 +35,40 @@ const AppBar = () => {
 
 export default AppBar
 
-const Nav = styled.nav`
-  padding: 0px 80px;
+const Nav = styled.div<NavProps>`
+  width: 100%;
+  position: fixed;
+  z-index: 1;
   height: 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  transition: 0.3s;
+  background-color: ${ props => props.scroll && 'rgba(0,0,0,0.23)' };
+  
   @media(max-width: 1000px) {
     padding: 0px 30px;
+    background-color: rgba(0, 0, 0, 0.2);
   }
   @media(max-width: 600px) {
     padding: 0px 10px;
   }
 `
 
-const Title = styled.p`
+const Title = styled(Link)`
   font-size: 1.7rem;
+  margin-left: 80px;
   font-weight: 700;
-  color: #1900a7;
+  text-decoration: none;
+  color: white;
 `
 
 const ContentButtons = styled.div`
+  margin-right: 80px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 30%;
+  justify-content: space-between;
+  width: 35%;
   @media(max-width: 1000px) {
     width: 50%;
   }
@@ -55,7 +77,7 @@ const ContentButtons = styled.div`
   }
 `
 
-const Link = styled.a`
+const LinkNav = styled(Link)`
   text-decoration: none;
   color: white;
 `

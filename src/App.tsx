@@ -1,10 +1,9 @@
-import HomePage from "./pages/Home/HomePage"
-
+import AppRouter from "./router/AppRouter/AppRouter"
 
 const App = () => {
   return (
     <>
-      <HomePage />
+      <AppRouter />
     </>
   );
 }

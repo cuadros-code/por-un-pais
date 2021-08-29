@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const Button = styled.button`
+export const Button = styled(Link)`
   padding: 8px 13px;
   background: transparent;
   color: white;
@@ -8,6 +9,7 @@ export const Button = styled.button`
   border: 2px solid white;
   cursor: pointer;
   transition: 0.3s;
+  text-decoration: none;
 
   :active {
     background: rgba( 255, 255, 255, 0.3 );

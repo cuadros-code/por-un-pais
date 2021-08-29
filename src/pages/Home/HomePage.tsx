@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import AppBar from '../../components/AppBar/AppBar'
 import img from '../../assets/img/home.svg'
 import imgMoney from '../../assets/img/money.svg'
 import ios from '../../assets/img/apple-64.png'
@@ -8,12 +7,10 @@ import android from '../../assets/img/google-play.svg'
 const HomePage = () => {
   return (
     <Container>
-      <AppBar />
       <Content>
         <Description>
           <h2>Por un mejor país</h2>
           <p>Denuncia los actos de corrupción y ayuda a crear un lugar mejor donde vivir.</p>
-
           <ContentButtons> 
             <Buttons>
               <img src={android} alt="" />
@@ -54,15 +51,15 @@ export default HomePage
 
 const Container = styled.div`
   height: 100vh;
+  width: 100vw;
   background-image: url(${img});
   background-repeat: no-repeat;
-  background-position: center;
   background-size: cover;
 `
 const Content = styled.div`
   display: grid;
+  padding-top: 90px;
   grid-template-columns: 1fr 1fr;
-
   @media (max-width: 700px){
     grid-template-columns: 1fr;
   }
@@ -84,6 +81,7 @@ const Buttons = styled.button`
   display: flex;
   border: none;
   cursor: pointer;
+  transition: 0.3s;
   div{
     display: flex;
     flex-direction: column;
@@ -94,6 +92,9 @@ const Buttons = styled.button`
   img {
     width: 30px;
     margin-right: 5px;
+  }
+  :active {
+    background-color: rgba(0,0,0,0.8);
   }
 `
 
@@ -136,5 +137,7 @@ const ContentImg = styled.div`
 
 const Img = styled.img`
   width: 90%;
+  max-width: 700px;
   position: relative;
+
 `
